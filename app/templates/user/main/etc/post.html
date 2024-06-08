@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    {% include "user/include/links.html" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/etc/post.css') }}">
+    <title>RAC | {{ post.title }}</title>
+</head>
+<body>
+    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <div class="container">
+        <div class="menu">
+            {% include "user/include/menu.html" %}
+        </div>
+        <div class="post">
+            <p><strong class="title">Тема:</strong> {{ post.title }}</p>
+            <p><strong>Автор: </strong><a href="{{ url_for('get_account', username=post.author.login) }}">{{ post.author.login }}</a></p>
+            <p><strong></strong>{{ post.text | safe }}</p>
+            <p class="time">Опубликовано: {{ post.date_post.strftime('%d.%m.%Y, %H:%M') }}</p>
+        </div>
+    </div>
+</body>
+</html>

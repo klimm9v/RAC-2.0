@@ -1,0 +1,53 @@
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>RAC</title>
+<h1 class="logo">RAC: Russian Anonymous Chat</h1>
+<style>
+    .logo {
+        text-align: center;
+        font-family: "UnifrakturCook";
+        font-weight: 1000;
+        font-style: normal;
+    }
+</style>
+
+<hr width="50%" size="5" color="black" align="center">
+<br>
+<h1 style="text-align: center;">Регистрация</h1>
+<form method="POST" action="/register" style="text-align: center;">
+    {{ form.csrf_token }}
+    <p>
+        {{ form.login.label }}<br>
+        {{ form.login(size=32) }}<br>
+        {% for error in form.login.errors %}
+           <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=32) }}<br>
+        {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password_repeat.label }}<br>
+        {{ form.password_repeat(size=32) }}<br>
+        {% for error in form.password_repeat.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <div class="my-recaptcha" style="text-align: center; display: flex; justify-content: center; align-items: center;">
+        {{ form.recaptcha }}
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <p>{{ form.submit() }}</p>
+</form>
+<p style="text-align:center;">Есть аккаунт?<a href="{{ url_for("login") }}"> Авторизация</a></p>

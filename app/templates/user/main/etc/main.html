@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    {% include "user/include/links.html" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/etc/index.css') }}">
+    <title>RAC</title>
+</head>
+<body>
+    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <div class="container">
+        <div class="menu">
+            {% include "user/include/menu.html" %}
+        </div>
+        {% for ps in posts %}
+        <div class="post">
+            <h2 class="title">{{ ps.title }}</h2>
+            <p><a href="post/{{ ps.id }}">Читать дальше...</a></p>
+            <p class="time">Опубликовано: {{ ps.date_post.strftime('%d.%m.%Y') }}, от {{ ps.author.login }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.username {
+    color: #4169E1;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.account {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px #aaa;
+}
+
+
+
+.profile-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    text-align: center;
+    width: 30%;
+}
+
+.avatar img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.info {
+    width: 65%;
+}
+
+.info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.upload-avatar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.upload-avatar input[type="file"] {
+    display: block;
+    margin: 10px auto;
+}
+
+.upload-avatar button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.upload-avatar button:hover {
+    background-color: #0056b3;
+}
+
+.menu ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu ul li:last-child {
+    margin-right: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: #ccc;
+}
+
+.menu {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc; /* Добавляем рамку */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.logo {
+    text-align: center;
+    font-family: "UnifrakturCook";
+    font-weight: 1000;
+    font-style: normal;
+}
+
+a {
+    color: #4169E1;
+}
