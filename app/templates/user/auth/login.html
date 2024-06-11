@@ -1,5 +1,6 @@
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="{{ url_for('static', filename='user/auth.css') }}">
 <title>RAC</title>
 <h1 class="logo">RAC: Russian Anonymous Chat</h1>
 <style>
@@ -17,7 +18,7 @@
     {{ form.csrf_token }}
     <p>
         {{ form.login.label }}<br>
-        {{ form.login(size=32) }}<br>
+        {{ form.login(class_="form-input", size=32) }}<br>
         {% if form.login.errors %}
         <ul class="errors">
         {% for error in form.login.errors %}
@@ -28,7 +29,7 @@
     </p>
     <p>
         {{ form.password.label }}<br>
-        {{ form.password(size=32) }}<br>
+        {{ form.password(class_="form-input", size=32) }}<br>
         {% if form.password.errors %}
         <ul class="errors">
         {% for error in form.password.errors %}

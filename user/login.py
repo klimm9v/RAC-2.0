@@ -39,10 +39,11 @@ def register():
     if form.validate_on_submit():
       login = form.login.data
       password = form.password.data
-      password_hash = generate_password_hash(password)
       q = User.query.filter_by(login=login).first()
       if q:
         flash("Такой login существует")
+        return redirect(url_for("register"))
+      password_hash = generate_password_hash(password)
       new_user = User(login=login, password=password_hash)
       db.session.add(new_user)
       db.session.commit()

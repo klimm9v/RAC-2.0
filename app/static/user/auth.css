@@ -1,0 +1,23 @@
+.form-input {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.form-input1 {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.aur {
+    text-align: center;
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+}

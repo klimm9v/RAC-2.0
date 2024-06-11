@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm, RecaptchaField
-from wtforms import StringField, SubmitField, PasswordField, TextAreaField
+from wtforms import StringField, SubmitField, PasswordField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Length, EqualTo
 
 # форма авторизации
@@ -16,9 +16,29 @@ class RegisterForm(FlaskForm):
     password_repeat = PasswordField("Password: ", validators=[DataRequired(), EqualTo("password", message="Пароли не совпадают")])
     recaptcha = RecaptchaField()
     submit = SubmitField("Войти")
+    
+options = [
+    ('Хакерство'),
+    ('Безопасность'),
+    ('Вещества'),
+]
 
 # форма поста
 class PostForm(FlaskForm):
     title = StringField("Заголовок", validators=[DataRequired()])
     text = TextAreaField("Текст", validators=[DataRequired()])
-    submit = SubmitField("Отправить")
+    select_option = SelectField('Тема', choices=options, validators=[DataRequired()]) # Добавляем валидатор DataRequired()
+    submit = SubmitField("Опубликовать")
+
+
+
+# Шифрование
+class EncryptForm(FlaskForm):
+    message = TextAreaField('Сообщение для шифрования', validators=[DataRequired(), Length(min=5, max=1000)])
+    key = StringField('Ключ', validators=[DataRequired(), Length(min=4, max=32)])
+    submit = SubmitField('Зашифровать')
+
+class DecryptForm(FlaskForm):
+    message = TextAreaField('Сообщение для дешифрования', validators=[DataRequired(), Length(min=5, max=1000)])
+    key = StringField('Ключ', validators=[DataRequired(), Length(min=4, max=32)])
+    submit = SubmitField('Расшифровать')

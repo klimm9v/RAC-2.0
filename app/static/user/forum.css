@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.menu {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc; /* Добавляем рамку */
+    background-color: #e0e0e0;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu ul li:last-child {
+    margin-right: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+.menu ul li a:hover {
+    background-color: #ccc;
+}
+
+.logo {
+    text-align: center;
+    font-family: "UnifrakturCook";
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+.title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.forum-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.forum-section h3 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.forum-section p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.forum-section a {
+    text-decoration: none;
+    color: #4169E1;
+    transition: color 0.3s;
+}
+
+.forum-section a:hover {
+    color: #0000cd;
+}

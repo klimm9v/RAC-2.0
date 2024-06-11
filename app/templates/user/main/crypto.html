@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    {% include "user/include/links.html" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/crypto.css') }}">
+    <title>RAC</title>
+</head>
+<body>
+    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <div class="container">
+        <div class="menu">
+            {% include "user/include/menu.html" %}
+        </div>
+        <br>
+        <br>
+        <div class="form-container">
+            <form action="/encrypt" method="POST">
+                {{ form_encrypt.hidden_tag() }}
+                <div class="form-group">
+                    {{ form_encrypt.message.label }}<br>
+                    {{ form_encrypt.message(class_="form-input1", size=40) }}
+                </div>
+                <div class="form-group">
+                    {{ form_encrypt.key.label }}<br>
+                    {{ form_encrypt.key(class_="form-input", size=40) }}
+                </div>
+                <br>
+                <div class="form-group">
+                    {{ form_encrypt.submit() }}
+                </div>
+            </form>
+            {% if encrypt_text %}
+                <p>{{ encrypt_text }}
+              {% else %}
+                <p>здесь будет ваш шифрованный текст
+            {% endif %} 
+            <br>
+            <br>
+            <br>
+            <br>
+            <form action="/decrypt" method="POST">
+                {{ form_decrypt.hidden_tag() }}
+                <div class="form-group">
+                    {{ form_decrypt.message.label }}<br>
+                    {{ form_decrypt.message(class_="form-input1", size=40) }}
+                </div>
+                <div class="form-group">
+                    {{ form_decrypt.key.label }}<br>
+                    {{ form_decrypt.key(class_="form-input", size=40) }}
+                </div>
+                <br>
+                <div class="form-group">
+                    {{ form_decrypt.submit() }}
+                </div>
+            </form>
+            {% if encrypt_text %}
+               <p>{{ encrypt_text }}
+            {% else %}
+               <p>здесь будет ваш дешифрованный текст
+            {% endif %} 
+        </div>
+    </div>
+</body>
+</html>

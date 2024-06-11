@@ -2,7 +2,7 @@ from app.app import app, db
 from flask import request, abort
 from flask_login import current_user, login_required
 from flask import request, redirect, url_for, render_template, flash
-from manager.models import Post, User
+from manager.models import Post, User, Category
 from manager.forms import PostForm
 from datetime import datetime
 import os
@@ -13,26 +13,20 @@ import os
 @app.route("/main")
 @login_required
 def main():
-    posts = Post.query.order_by(Post.id.desc()).all()
-    return render_template("user/main/etc/main.html", posts=posts)
+    return render_template("user/main/main.html")
 
 
 
 # Отображение определенного поста
-@app.route("/post/<int:post_id>")
-@login_required
-def post(post_id):
-    post = Post.query.filter_by(id=post_id).first()
-    if not post:
-        abort(404)
-    return render_template("user/main/etc/post.html", post=post)
+
 
 
 # отображение аккаунта сессии
 @app.route("/account")
 @login_required
 def account():
-    return render_template("user/main/user/me_account.html", user=current_user)
+    return render_template("user/main/me_account.html", user=current_user)
+
 
 
 # отображение аккаунта пользователя
@@ -43,8 +37,8 @@ def get_account(username):
     if not user:
         abort(404)
     if user.id == current_user.id:
-       return render_template("user/main/user/me_account.html", user=user)
-    return render_template("user/main/user/account.html", user=user)
+       return render_template("user/main/me_account.html", user=user)
+    return render_template("user/main/account.html", user=user)
 
 
 
@@ -59,12 +53,14 @@ def create():
             text = form.text.data.replace("\n", "<br>")
             text = text.replace("<script>", "< script >")
             date_post = datetime.now()
-            new_post = Post(title=title, text=text, user_id=current_user.id, date_post=date_post)
+            category_id = form.select_option.data
+            category = Category.query.filter_by(name=category_id).first()
+            new_post = Post(title=title, text=text, user_id=current_user.id, date_post=date_post, category_id=category.id)
             db.session.add(new_post)
             db.session.commit()
             db.session.close()
             return redirect(url_for("create"))
-    return render_template("user/main/etc/create.html", form=form)
+    return render_template("user/main/create.html", form=form)
 
 
 
@@ -102,4 +98,4 @@ def upload_avatar():
             flash('Недопустимый формат файла')
             return redirect(request.url)
     # Если GET запрос, просто отображаем форму
-    return render_template("user/main/user/account.html", user=current_user)
+    return render_template("user/main/account.html", user=current_user)

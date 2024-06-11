@@ -1,9 +1,8 @@
 <ul>
     <li><a href="{{ url_for("main") }}">Главная</a></li>
     <li><a href="{{ url_for("create") }}">Создать</a></li>
-    <li><a href="#">Форум</a></li>
-    <li><a href="#">Чат</a></li>
-    <li><a href="#">Шифрование</a></li>
+    <li><a href="{{ url_for("category") }}">Форум</a></li>
+    <li><a href="{{ url_for("crypto") }}">Шифрование</a></li>
     <li><a href="{{ url_for("account") }}">Аккаунт</a></li>
     <li><a href="{{ url_for("logout") }}">Выход</a></li>
 </ul>

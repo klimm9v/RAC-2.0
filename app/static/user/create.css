@@ -10,6 +10,11 @@ body {
     padding: 0 20px;
 }
 
+p {
+    font-family: "Montserrat", sans-serif;
+
+}
+
 .menu ul li {
     display: inline;
     margin-right: 10px;
@@ -59,6 +64,11 @@ body {
     font-style: normal;
 }
 
+.form-wrapper {  /* Добавляем стили для wrapper */
+    padding: 35px;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Добавляем отступ снизу */
+}
 
 
 .form-label {
@@ -68,7 +78,7 @@ body {
 
 .form-input {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
@@ -79,6 +89,5 @@ body {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    resize: vertical; /* Разрешаем только вертикальное изменение размера */
 }
-
-
