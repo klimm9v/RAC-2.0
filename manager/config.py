@@ -2,15 +2,16 @@ from app.app import app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_session import Session
 import os
+from datetime import timedelta
 
 # конфиг
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///admin.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login_manager = LoginManager(app)
-app.secret_key = '12345'
-login_manager.init_app(app)
+app.config['SECRET_KEY'] = '12345'  # Замените на уникальную строку
 UPLOAD_FOLDER = os.path.join('app', 'static', 'uploads')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', "webp",}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

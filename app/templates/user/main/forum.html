@@ -11,7 +11,16 @@
         <div class="menu">
             {% include "user/include/menu.html" %}
         </div>
-        <h2 class="title">Форумные разделы</h2>
+        <button type="submit" class="submit" style="
+        border: none;
+        background-color: black;
+        color: red;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+      ">
+        <a href="/create" style="color: white; text-decoration: none;">Создать</a>
+      </button>
         {% for category in topics %}
         <div class="forum-section">
             <h3><a href="forum/{{ category.id }}">Раздел {{ category.id }}: {{ category.name }}</a></h3>

@@ -1,54 +1,61 @@
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="{{ url_for('static', filename='user/auth.css') }}">
-<title>RAC</title>
-<h1 class="logo">RAC: Russian Anonymous Chat</h1>
-<style>
-    .logo {
-        text-align: center;
-        font-family: "UnifrakturCook";
-        font-weight: 1000;
-        font-style: normal;
-    }
-</style>
-
-<hr width="50%" size="5" color="black" align="center">
-<br>
-<h1 style="text-align: center;">Регистрация</h1>
-<form method="POST" action="/register" style="text-align: center;">
-    {{ form.csrf_token }}
-    <p>
-        {{ form.login.label }}<br>
-        {{ form.login(class_="form-input", size=32) }}<br>
-        {% for error in form.login.errors %}
-           <span style="color: red;">[{{ error }}]</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/auth.css') }}">
+    <title>RAC</title>
+</head>
+<body>
+    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <br>
+    <h2 class="auth-title">Регистрация</h2>
+    <form method="POST" action="/register" class="auth-form">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.login.label }}<br>
+            {{ form.login(class_="form-input", size=32) }}<br>
+            {% if form.login.errors %}
+            <ul class="errors">
+                {% for error in form.login.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}<br>
+            {{ form.password(class_="form-input", size=32) }}<br>
+            {% if form.password.errors %}
+            <ul class="errors">
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.password_repeat.label }}<br>
+            {{ form.password_repeat(class_="form-input", size=32) }}<br>
+            {% if form.password_repeat.errors %}
+            <ul class="errors">
+                {% for error in form.password_repeat.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+            <p class="error-message">{{ message }}</p>
         {% endfor %}
-    </p>
-    <p>
-        {{ form.password.label }}<br>
-        {{ form.password(class_="form-input", size=32) }}<br>
-        {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-    <p>
-        {{ form.password_repeat.label }}<br>
-        {{ form.password_repeat(class_="form-input", size=32) }}<br>
-        {% for error in form.password_repeat.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}
-    </p>
-    <div class="my-recaptcha" style="text-align: center; display: flex; justify-content: center; align-items: center;">
-        {{ form.recaptcha }}
-    </div>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-        <p>{{ message }}</p>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-    <p>{{ form.submit() }}</p>
-</form>
-<p class="aur">Есть аккаунт?<a href="{{ url_for("login") }}"> Авторизация</a></p>
+        {% endif %}
+        {% endwith %}
+        <p>{{ form.submit() }}</p>
+    </form>
+    <p class="auth-link">Есть аккаунт?<a href="{{ url_for("login") }}"> Войти</a></p>
+</body>
+</html>

@@ -3,6 +3,8 @@ from app.app import app, db
 from manager.models import Post, Category
 from manager.forms import PostForm
 from flask_login import login_required
+from sqlalchemy import desc
+
 
 @app.route("/forum/post/<int:post_id>")
 @login_required
@@ -24,5 +26,5 @@ def category():
 @login_required
 def forum(forum_id):
     category = Category.query.get(forum_id)
-    posts = Post.query.filter_by(category_id=forum_id).all()
+    posts = Post.query.filter_by(category_id=forum_id).order_by(desc(Post.id)).all()
     return render_template('user/main/all_post.html', category=category, posts=posts)

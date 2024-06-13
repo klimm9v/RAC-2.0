@@ -1,3 +1,4 @@
+/* user/auth.css */
 .form-input {
     width: 20%;
     padding: 8px;
@@ -5,13 +6,32 @@
     border-radius: 4px;
 }
 
+.auth-title {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 2em;
+    font-family: "UnifrakturCook";
+}
 
-.form-input1 {
-    width: 20%;
+.auth-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Автоматические отступы по левому и правому краю, 
+                   что центрирует форму */
+}
+
+.form-input {
+    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
+
 
 .aur {
     text-align: center;
@@ -20,4 +40,35 @@
 a {
     text-align: center;
     text-decoration: none;
+}
+
+.logo {
+    text-align: center;
+    font-family: "UnifrakturCook";
+    font-weight: 1000;
+    font-style: normal;
+}
+
+.auth-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.my-recaptcha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.auth-link {
+    text-align: center;
 }

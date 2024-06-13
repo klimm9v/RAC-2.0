@@ -1,10 +1,10 @@
 from flask_login import login_user, login_manager, logout_user, current_user, login_required
 from manager.models import User
 from app.app import app, db, ALLOWED_EXTENSIONS
-from flask import redirect, url_for, request, flash
+from flask import redirect, url_for, request, flash, session
 from manager.forms import Login
 from manager.models import User
-from manager.config import login_manager
+from app.app import login_manager
 import os
 from datetime import datetime
 

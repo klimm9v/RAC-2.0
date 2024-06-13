@@ -92,7 +92,6 @@ def upload_avatar():
             # Обновляем путь к аватару в базе данных
             current_user.avatar = filename  # Сохраняем только имя файла
             db.session.commit()  # Фиксируем изменения в базе данных
-            
             return redirect(url_for('account'))
         else:
             flash('Недопустимый формат файла')

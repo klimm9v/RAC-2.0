@@ -15,12 +15,12 @@
                 {{ form.hidden_tag() }}
                 <div class="form-field">  <!-- Оборачиваем label и input в div -->
                     <label class="form-label" for="{{ form.title.id }}">{{ form.title.label }}</label>
-                    {{ form.title(class_="form-input", size=30) }}
+                    {{ form.title(class_="form-input", size=30, placeholder="Введите заголовок") }}
                 </div>
                 <br>
                 <div class="form-field">  <!-- Оборачиваем label и textarea в div -->
                     <label class="form-label" for="{{ form.text.id }}">{{ form.text.label }}</label>
-                    {{ form.text(class_="form-textarea", rows=10, cols=50) }}
+                    {{ form.text(class_="form-textarea", rows=10, cols=50, placeholder="Введите название статьи") }}
                 </div>
                 <br>
                 {{ form.select_option.label }}

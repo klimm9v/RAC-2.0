@@ -81,6 +81,8 @@ p {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 .form-textarea {
@@ -89,5 +91,5 @@ p {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical; /* Разрешаем только вертикальное изменение размера */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

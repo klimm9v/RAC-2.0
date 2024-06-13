@@ -12,8 +12,6 @@ class User(db.Model, UserMixin):
     date_user = db.Column(db.DateTime, default=datetime.now)
     last_online = db.Column(db.DateTime, default=datetime.now)
 
-
-
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
