@@ -3,10 +3,10 @@
     {% include "user/include/links.html" %}
     <link rel="stylesheet" href="{{ url_for('static', filename='user/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='user/crypto.css') }}">
-    <title>RAC</title>
+    <title>RAC — Шифрование</title>
 </head>
 <body>
-    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <h1 class="logo">Russian Anonymous Chat</h1>
     <div class="container">
         <div class="menu">
             {% include "user/include/menu.html" %}
@@ -31,8 +31,6 @@
             </form>
             {% if encrypt_text %}
                 <p>{{ encrypt_text }}
-              {% else %}
-                <p>здесь будет ваш шифрованный текст
             {% endif %} 
             <br>
             <br>
@@ -55,8 +53,6 @@
             </form>
             {% if encrypt_text %}
                <p>{{ encrypt_text }}
-            {% else %}
-               <p>здесь будет ваш дешифрованный текст
             {% endif %} 
         </div>
     </div>

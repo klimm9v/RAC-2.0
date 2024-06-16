@@ -68,6 +68,7 @@ p {
     padding: 35px;
     border-radius: 10px;
     margin-bottom: 10px; /* Добавляем отступ снизу */
+    border: 1px solid #ccc;
 }
 
 

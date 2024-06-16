@@ -6,18 +6,18 @@
     <title>RAC Forum</title>
 </head>
 <body>
-    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <h1 class="logo">Russian Anonymous Chat</h1>
     <div class="container">
         <div class="menu">
             {% include "user/include/menu.html" %}
         </div>
-        <h2 class="title"><a href="{{ url_for("category") }}">Форумные разделы</a> | {{ category.name }}</h2>
+        <h2 class="title"><a href="{{ url_for("category") }}">Разделы</a> | {{ category.name }}</h2>
         {% for ps in posts %}
-        <div class="post">
-            <h2 class="title">{{ ps.title }}</h2>
-            <p><a href="post/{{ ps.id }}">Читать дальше...</a></p>
-            <p class="time">Опубликовано: {{ ps.date_post.strftime('%d.%m.%Y') }}, от {{ ps.author.login }}</p>
-        </div>
+            <div class="post">
+                <h2 class="title">{{ ps.title }}</h2>
+                <p><a href="post/{{ ps.id }}">Читать дальше...</a></p>
+                <p class="time">Опубликовано: {{ ps.date_post.strftime('%d.%m.%Y') }}, от {{ ps.author.login }}</p>
+            </div>
         {% endfor %}
     </div>
 </body>

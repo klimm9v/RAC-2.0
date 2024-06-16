@@ -9,7 +9,7 @@
     <title>RAC</title>
 </head>
 <body>
-    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <h1 class="logo">Russian Anonymous Chat</h1>
     <br>
     <h2 class="auth-title">Авторизация</h2>
     <form method="POST" action="/login" class="auth-form">
@@ -36,6 +36,7 @@
             </ul>
             {% endif %}
         </div>
+        {{ form.recaptcha }}
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}

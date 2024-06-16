@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    {% include "user/include/links.html" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/yashik.css') }}">
+    <title>RAC — Ящик</title>
+</head>
+<body>
+    <h1 class="logo">Russian Anonymous Chat</h1>
+    <div class="container">
+        <div class="menu">
+            {% include "user/include/menu.html" %}
+        </div>
+        <br>
+        <div class="info">
+            <h2>Что такое ящик? | <a href="#">Мои письма</a></h2> 
+            <p>Ящик это средство для <b>анонимных писем.</b> Чтобы использовать:
+            <ul>
+                <li>Вставьте код собеседника
+                <li>зашифруте ваше смс
+            </ul>
+        </div>
+        <br>
+        <div class="form-wrapper"> 
+            {{ form.hidden_tag() }}
+            <div class="form-field">
+                {{ form.code.label}}
+                {{ form.code(class_="form-input") }}
+            <div>
+            <br>
+            <div class="form-field">
+                {{ form.message.label }}
+                {{ form.message(class_="form-input-ls") }}
+            </div>
+            <br>
+            {{ form.submit }}
+        </div> 
+    </div>
+</body>
+</html>

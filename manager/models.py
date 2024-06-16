@@ -9,14 +9,16 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(100))
     avatar = db.Column(db.String(120), default=None)
     posts = db.relationship("Post", backref="author")
+    code = db.Column(db.Integer, unique=True, default=None)
     date_user = db.Column(db.DateTime, default=datetime.now)
     last_online = db.Column(db.DateTime, default=datetime.now)
+
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
     description = db.Column(db.String(100))
-   
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -113,6 +113,11 @@ body {
     border: 2px solid #ccc; /* Добавляем рамку */
 }
 
+.ususername {
+    color: red;
+    font-weight: 500;
+}
+
 .menu ul {
     list-style-type: none;
     padding: 0;

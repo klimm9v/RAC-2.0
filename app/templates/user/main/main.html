@@ -2,20 +2,20 @@
 <head>
     {% include "user/include/links.html" %}
     <link rel="stylesheet" href="{{ url_for('static', filename='user/index.css') }}">
-    <title>RAC</title>
+    <title>RAC — Главная</title>
 </head>
 <body>
-    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <h1 class="logo">Russian Anonymous Chat</h1>
     <div class="container">
         <div class="menu">
             {% include "user/include/menu.html" %}
         </div>
         {% for ps in posts %}
-        <div class="post">
-            <h2 class="title">{{ ps.title }}</h2>
-            <p><a href="post/{{ ps.id }}">Читать дальше...</a></p>
-            <p class="time">Опубликовано: {{ ps.date_post.strftime('%d.%m.%Y') }}, от {{ ps.author.login }}</p>
-        </div>
+            <div class="post">
+                <h2 class="title">{{ ps.title }}</h2>
+                <p><a href="post/{{ ps.id }}">Читать дальше...</a></p>
+                <p class="time">Опубликовано: {{ ps.date_post.strftime('%d.%m.%Y') }}, от {{ ps.author.login }}</p>
+            </div>
         {% endfor %}
     </div>
 </body>

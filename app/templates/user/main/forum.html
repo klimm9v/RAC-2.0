@@ -3,29 +3,29 @@
 <head>
     {% include "user/include/links.html" %}
     <link rel="stylesheet" href="{{ url_for('static', filename='user/index.css') }}">
-    <title>RAC Forum</title>
+    <title>RAC — Форум</title>
 </head>
 <body>
-    <h1 class="logo">RAC: Russian Anonymous Chat</h1>
+    <h1 class="logo">Russian Anonymous Chat</h1>
     <div class="container">
         <div class="menu">
             {% include "user/include/menu.html" %}
         </div>
         <button type="submit" class="submit" style="
-        border: none;
-        background-color: black;
-        color: red;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
+            border: none;
+            background-color: black;
+            color: red;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
       ">
         <a href="/create" style="color: white; text-decoration: none;">Создать</a>
       </button>
         {% for category in topics %}
-        <div class="forum-section">
-            <h3><a href="forum/{{ category.id }}">Раздел {{ category.id }}: {{ category.name }}</a></h3>
-            <p>{{ category.description }}</p>
-        </div>
+            <div class="forum-section">
+                <h3><a href="forum/{{ category.id }}">Раздел {{ category.id }}: {{ category.name }}</a></h3>
+                <p>{{ category.description }}</p>
+            </div>
         {% endfor %}
     </div>
 </body>

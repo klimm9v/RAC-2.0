@@ -63,8 +63,7 @@ body {
 }
 
 .post {
-    display: flex;
-    align-items: center;
+    display: block; /*  Убираем flexbox для обычной формы */
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -85,9 +84,9 @@ body {
     
 }
 
-.title {
-    color: blue;
-
+.post .title {
+    font-weight: bold; 
+    margin-bottom: 5px;
 }
 
 .post .author {
@@ -102,18 +101,19 @@ body {
     line-height: 1.5; /* Уменьшаем высоту строки контента */
 }
 
-.post .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
+.post .avatar {
+    float: left; /*  Аватар слева */
+    margin-right: 10px; 
+    margin-bottom: 10px; /*  Добавляем отступ снизу */
 }
 
-.post .avatar {
-    width: 100px; /* Уменьшаем ширину аватара */
-    height: 100px; /* Уменьшаем высоту аватара */
-    margin-right: 10px; /* Уменьшаем отступ справа от аватара */
+.post .avatar img {
+    width: 100px; /*  Размер аватара */
+    height: 100px;
+    border-radius: 5px; /*  Скругленные углы */
 }
+
+
 
 .post .id {
     color: #888;
