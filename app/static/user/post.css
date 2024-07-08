@@ -110,10 +110,7 @@ body {
 .post .avatar img {
     width: 100px; /*  Размер аватара */
     height: 100px;
-    border-radius: 5px; /*  Скругленные углы */
 }
-
-
 
 .post .id {
     color: #888;

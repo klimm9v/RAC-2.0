@@ -13,9 +13,9 @@
         <div class="post">
             <div class="avatar">
                 {% if user.avatar %}
-                    <img src="{{ url_for('static', filename='uploads/' + user.avatar) }}">
+                    <img src="{{ url_for('static', filename='uploads/' + user.avatar) }}" style="object-fit: cover; pointer-events: none; border-radius: 50%; aspect-ratio: 1/1;">
                 {% else %}
-                    <img src="#">
+                    <img src="{{ url_for('static', filename='1.png') }}" style="object-fit: cover; pointer-events: none; border-radius: 50%; aspect-ratio: 1/1;">
                 {% endif %}
             </div>
             <div class="content">

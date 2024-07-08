@@ -17,7 +17,7 @@
             <p>Ящик это средство для <b>анонимных писем.</b> Чтобы использовать:
             <ul>
                 <li>Вставьте код собеседника
-                <li>зашифруте ваше смс
+                <li style = "color: red;">Внимание! зашифруте ваше смс
             </ul>
         </div>
         <br>
@@ -25,12 +25,12 @@
             {{ form.hidden_tag() }}
             <div class="form-field">
                 {{ form.code.label}}
-                {{ form.code(class_="form-input") }}
+                {{ form.code(class_="form-input", placeholder="код собеседника") }}
             <div>
             <br>
             <div class="form-field">
                 {{ form.message.label }}
-                {{ form.message(class_="form-input-ls") }}
+                {{ form.message(class_="form-input-ls", placeholder="зашифрованный текст") }}
             </div>
             <br>
             {{ form.submit }}
